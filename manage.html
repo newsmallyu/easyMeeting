@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EasyMeeting Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="static/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <link href="static/css/vendor/codemirror.min.css" rel="stylesheet">
+    <link href="static/css/vendor/dracula.min.css" rel="stylesheet">
+    <link href="static/css/vendor/merge.min.css" rel="stylesheet">
+
+    <link href="static/main.css" rel="stylesheet">
+    <link rel="icon" href="static/img/favicon.ico" />
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="js/calendar.js"></script>
+</head>
+<body>
+<div class="container" >
+    <div>
+            <table class="table table-striped" id="meetings">
+                <caption class="caption"><a href="/easyMeeting/index.html" style="color: #000;">easyMeeting</a></caption>
+                <thead>
+                <tr>
+                    <th class="col-md-1">会议ID</th>
+                    <th class="col-md-2">会议日期</th>
+                    <th class="col-md-2">会议主题</th>
+                    <th class="col-md-2">会议室</th>
+                    <th class="col-md-2">开始时间</th>
+                    <th class="col-md-2">结束时间</th>
+                    <th class="col-md-2">预订用户</th>                    
+                </tr>
+                </thead>
+                <tbody>
+               
+                </tbody>
+            </table>
+        
+    </div>
+    <script type="text/javascript">
+        window.onload=function(){
+            var cookie = getCookie();
+            var html = '';
+            var date = '';
+            $.ajax({
+            method: "POST",
+            url: "managermeeting",
+            contentType: "application/json;charset='utf-8'",
+            data: JSON.stringify(cookie)
+        }).done(function(response_body) {
+            if (response_body !== null) {
+            for(var i = 0;i<response_body.length;i++){
+                date=(new Date(Number(response_body[i][1]))).format("yyyy-MM-dd");
+            html+="<tr>"+
+            "<td id='myid'>"+response_body[i][0]+"</td>"+
+            "<td>"+date+"</td>"+
+            "<td>"+response_body[i][2]+"</td>"+
+            "<td>"+response_body[i][3]+"</td>"+
+            "<td>"+response_body[i][4]+"</td>"+
+            "<td>"+response_body[i][5]+"</td>"+
+            "<td>"+response_body[i][6]+"</td>"+
+            "<td>"+"<button class='btn btn-danger btn-xs' id='delete-button' onclick=\'onButtonClick("+response_body[i][0]+")\'>"+"Delete"+
+                "</button>"+"</td>"+
+            "</tr>";
+         }
+         $("#meetings").append(html);
+        }else{
+            alert("没有查询到您创建的会议室预订记录");
+        }
+      });
+        }
+        
+    Date.prototype.format = function(format){
+    var o = {
+        "M+" : this.getMonth()+1, //month
+        "d+" : this.getDate(), //day
+        "H+" : this.getHours(), //hour
+        "m+" : this.getMinutes(), //minute
+        "s+" : this.getSeconds(), //second
+        "q+" : Math.floor((this.getMonth()+3)/3), //quarter
+        "S" : this.getMilliseconds() //millisecond
+    }
+
+    if(/(y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    }
+
+    for(var k in o) {
+        if(new RegExp("("+ k +")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+        }
+    }
+    return format;
+}
+
+        function getCookie() {
+    // 读取cookie
+    var cookie = document.cookie;
+    var dict_cookie = {};
+
+    if (cookie.length > 0) {
+      // 解析cookie为hash形式对象
+      cookie = cookie.split(";");
+      cookie.map(function(item) {
+        var tem = item.trim().split("=");
+        dict_cookie[tem[0]] = tem[1];
+      });
+    }
+    return dict_cookie;
+  }
+
+  function onButtonClick(id) {
+        //$("#id").val(id);
+        // form.submit();
+        $.ajax({
+            method: "POST",
+            url: "deletemeeting",
+            contentType: "application/json;charset='utf-8'",
+            data: JSON.stringify(id),
+        }).done(function(response){
+            if(response!==null){
+                alert("删除成功！")
+            }
+        })
+        location.reload();
+       
+    }
+
+    </script>
+
+</div>
+
+<!-- /container -->
+
+
+
+</body>
+</html>

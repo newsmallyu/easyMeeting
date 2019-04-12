@@ -6,7 +6,7 @@ import sqlite3
 import time
 
 def connectDatabase():
-    conn = sqlite3.connect("/home/zx/projects/easyMeeting/cgi/easymeeting.db")
+    conn = sqlite3.connect("C:/Users/ay05/PycharmProjects/easyMeeting/cgi/easymeeting.db")
     return (conn, conn.cursor())
 
 """
@@ -70,10 +70,11 @@ def createMeetingTable():
                          TITLE TEXT NOT NULL,
                          ROOM TEXT NOT NULL,
                          START TEXT NOT NULL,
-                         END TEXT NOT NULL);""")
+                         END TEXT NOT NULL,
+                         USER_NAME TEXT NOT NULL);""")
     return (conn, cursor)
 
-def addMeeting(timestamp, title, room, start, end):
+def addMeeting(timestamp, title, room, start, end, user_name):
     id = int(time.time() * 10000000)
     # 如果meetings不存在则首先创建表meetings
     conn, cursor = createMeetingTable()
@@ -81,14 +82,14 @@ def addMeeting(timestamp, title, room, start, end):
     # 首先查询是否有重复的会议室预定数据，无则增加，否则返回None
     cursor.execute(""" SELECT * FROM meetings
             WHERE TIMESTAMP='{}' and
-                  TITLE='{}' and
                   ROOM='{}' and
                   START='{}' and
-                  END='{}'""".format(timestamp, title, room, start, end))
-    if not cursor.fetchone():
-        cursor.execute("""INSERT INTO meetings (ID, TIMESTAMP, TITLE, ROOM, START, END)
-                       VALUES ('{}', '{}', '{}', '{}', '{}', '{}')"""
-                              .format(id, timestamp, title, room, start, end))
+                  END='{}' """.format(timestamp, room, start, end))
+    length = len(cursor.fetchall())
+    if ( length <= 0):
+        cursor.execute("""INSERT INTO meetings (ID, TIMESTAMP, TITLE, ROOM, START, END, USER_NAME)
+                       VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}')"""
+                              .format(id, timestamp, title, room, start, end, user_name))
         conn.commit()
         cursor.execute("SELECT * FROM meetings WHERE ID={}".format(id))
         meeting = cursor.fetchone()
@@ -100,7 +101,8 @@ def addMeeting(timestamp, title, room, start, end):
             "title": meeting[2],
             "room": meeting[3],
             "start": meeting[4],
-            "end": meeting[5]
+            "end": meeting[5],
+            "user_name": meeting[6]
         }
 
 def queryMeetings(start_timestamp, end_timestamp):
@@ -111,5 +113,34 @@ def queryMeetings(start_timestamp, end_timestamp):
     meetings = cursor.fetchall()
     return meetings
 
+def queryMeetingByUser(user):
+    conn, cursor = createMeetingTable()
+    cursor.execute("""SELECT * FROM meetings
+            WHERE USER_NAME ='{}'""".format(user))
+    meetings = cursor.fetchall()
+    return meetings
+
+def queryMeetingALL():
+    conn, cursor = createMeetingTable()
+    cursor.execute("SELECT * FROM meetings")
+    meetings = cursor.fetchall()
+    return meetings
+
+def deleteMeetingById(id):
+    try:
+        conn, cursor = createMeetingTable()
+        cursor.execute("""DELETE FROM meetings
+            WHERE ID={}""".format(id))
+        conn.commit()
+    except Exception as e:
+        raise e
+    finally:
+        conn.close()
+    return "success"
+
 if __name__ == '__main__':
-    print(queryMeetings("1464451200000", "1478966400000"))
+#    print(queryMeetings("1464451200000", "1478966400000"))
+#    createMeetingTable()
+#    print(queryMeetingByUser("admin"))
+    queryMeetingALL()
+#    deleteMeetingById(15542741082021832)

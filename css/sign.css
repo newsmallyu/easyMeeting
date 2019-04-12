@@ -125,6 +125,18 @@ a:active {
   font-weight: bold;
   color: #fff;
 }
+.btn2 {
+  display: block;
+  margin: 15px 0;
+  height: 25px;
+  width: 100%;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+}
+
 
 .btn-signin {
   background-color: #80c3f7;

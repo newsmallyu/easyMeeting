@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="css/sign.css">
   <!-- <link rel="icon" href="images/logo.png">-->
-
+  <link rel="icon" href="static/img/index.ico" />
   <script src="js/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
   <script src="js/sign.js"></script>
@@ -22,13 +22,13 @@
 
     <main class="sign-flow">
       <div class="sign-tab-navs">
-        <span class="to-signup active">注册</span>
-        <span class="to-signin">登录</span>
+        <span class="to-signup">注册</span>
+        <span class="to-signin active">登录</span>
       </div>
 
       <div class="sign-form">
 	      <!-- 注册  -->
-        <div class="signup-form">
+        <div class="signup-form  hide">
           <div class="signup-input">
             <div id="username" class="signup-info">
               <input type="text" name="username" placeholder="用户名">
@@ -50,13 +50,16 @@
         </div>
 
 	      <!-- 登录  -->
-        <div class="signin-form hide">
+        <div class="signin-form">
           <div class="signin-input">
             <input type="text" name="username" placeholder="用户名">
             <input type="password" name="password" placeholder="密码">
           </div>
 	        <div class="alert hide"></div>
           <button class="btn btn-signin" type="submit">登录</button>
+          <button class="btn2 btn-primary" onclick="window.location='http://10.16.75.22:9898/2vwnh2mdcq1j820zuu1yfm1r3p'">
+              <a class="glyphicon glyphicon-tasks"></a> newegg AD
+            </button>
           <div class="rember-user pull-left">
             <input type="checkbox" name="rember-me" checked>
 	          <label for="rember-me">记住我</label>
@@ -65,10 +68,32 @@
         </div>
       </div>
     </main>
+    
   </div>
-
   <footer>
-    <span>@2016 PepperPapa | zhongxin2506@outlook.com</span>
+    <span>@2019 Newegg </span>
   </footer>
+
+  <script>
+     window.onload=function(){
+       var param = window.location.href.split("=")[1];
+       if(param != null){
+         $.ajax({
+            method: "POST",
+            url: "signinAd",
+            contentType: "application/json;charset='utf-8'",
+            data: JSON.stringify(param),
+        }).done(function(response){
+          if(response !== null){
+            redirect("/index.html")
+          }
+        })
+       }
+     }
+     function redirect(path) {
+    window.location.pathname = "/easyMeeting" + path;
+  }
+    
+  </script>
 </body>
 </html>

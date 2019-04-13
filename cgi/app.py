@@ -195,3 +195,6 @@ def application(environ, start_response):
 if __name__ == '__main__':
     print(newCookieExpires(30))
     print(newCookieExpires(-1))
+    httpd = make_server('', 8000, application)
+    print("Serving HTTP on port 8000...")
+    httpd.serve_forever()

@@ -74,19 +74,30 @@ def createMeetingTable():
                          USER_NAME TEXT NOT NULL);""")
     return (conn, cursor)
 
+def dateSplit(dateStr):
+    date = dateStr.split(":")
+    return int(date[0]+date[1])
+
+
 def addMeeting(timestamp, title, room, start, end, user_name):
     id = int(time.time() * 10000000)
     # 如果meetings不存在则首先创建表meetings
     conn, cursor = createMeetingTable()
-
+    length = 0
+    startnum = dateSplit(start)
+    endnum = dateSplit(end)
     # 首先查询是否有重复的会议室预定数据，无则增加，否则返回None
     cursor.execute(""" SELECT * FROM meetings
             WHERE TIMESTAMP='{}' and
-                  ROOM='{}' and
-                  START='{}' and
-                  END='{}' """.format(timestamp, room, start, end))
-    length = len(cursor.fetchall())
-    if ( length <= 0):
+                  ROOM='{}' """.format(timestamp, room))
+    meetings = cursor.fetchall()
+    for i in meetings:
+        if dateSplit(i[4]) <= startnum < dateSplit(i[5]) or dateSplit(i[4]) < endnum < dateSplit(i[5]):
+            length = length+1
+        elif startnum < dateSplit(i[4]):
+            if endnum > dateSplit(i[5]) or dateSplit(i[4]) < endnum <= dateSplit(i[5]):
+                length = length+1
+    if length <= 0:
         cursor.execute("""INSERT INTO meetings (ID, TIMESTAMP, TITLE, ROOM, START, END, USER_NAME)
                        VALUES ('{}', '{}', '{}', '{}', '{}', '{}', '{}')"""
                               .format(id, timestamp, title, room, start, end, user_name))

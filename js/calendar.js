@@ -317,7 +317,7 @@ $(function() {
         if (JSON.parse(cookie.islogin)) {
           $("a.register").text(cookie.name)
                          .attr("href", "#");
-          $("a.login").text("注销");
+          $("a.login").text("注销").attr("href", "http://10.16.75.22:9898/api/2vwnh2mdcq1j820zuu1yfm1r3p/logout?callback=http://10.16.236.117/easyMeeting/sign.html");
         }
       }
     }
@@ -490,8 +490,10 @@ $(function() {
 
   // 注销登录处理(仅修改islogin的状态为false)
   $("a.login").on("click", function() {
+    var cookie = getCookie();
     if (this.text === "注销") {
       document.cookie = "islogin=false";
+      
     }
   });
 

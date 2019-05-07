@@ -83,10 +83,7 @@ def handlemanagerMeeting(environ):
     json_body_length = int(environ['CONTENT_LENGTH'])
     json_body = environ['wsgi.input'].read(json_body_length).decode('utf-8')
     json_body = json.loads(json_body)
-    if(json_body["name"] == "admin"):
-        meetings = db.queryMeetingALL()
-    else:
-        meetings = db.queryMeetingByUser(json_body["name"])
+    meetings = db.queryMeetingByUser(json_body["name"], json_body["pagestart"], json_body["pagesize"])
     return meetings
 
 
@@ -106,7 +103,7 @@ def handleSiginAd(environ):
     user = None
     if json_body:
         urlad = "http://10.16.75.22:9898/api/token"
-        datatemp = {"Code": json_body, "SiteKey": "2vwnh2mdcq1j820zuu1yfm1r3p", "SiteSecret": "35b1jdyhh7igp2uti8i5anhcnl05yp97ygauqfk2nd0ad5660h2w"}
+        datatemp = {"Code": json_body, "SiteKey": "3k8fo80wnmwj82cxrwmbs9ovso", "SiteSecret": "3qsjypto7vhnm275v8mdj8ml5j0ghg55jvmfmm22u8nlk6l6rupp"}
         proxy = request.ProxyHandler({'https': 's1firewall:8080'})
         auth = request.HTTPBasicAuthHandler()
         opener = request.build_opener(proxy, auth, request.HTTPHandler)
@@ -126,6 +123,17 @@ def handleSiginAd(environ):
             user = json.loads(res.read())["UserName"]
     return user
 
+
+def get_total(environ):
+    json_body_length = int(environ['CONTENT_LENGTH'])
+    json_body = environ['wsgi.input'].read(json_body_length).decode('utf-8')
+    json_body = json.loads(json_body)
+    if(json_body["name"] == "admin"):
+        meetings = db.queryMeetingALL()
+        result = len(meetings)
+    else:
+        result = db.get_totalcell(json_body["name"])
+    return result
 
 
 def application(environ, start_response):
@@ -185,6 +193,11 @@ def application(environ, start_response):
         start_response('200 OK',
                        [('Content-Type','application/json;charset="utf-8"')])
         body = handlemanagerMeeting(environ)
+        return [json.dumps(body).encode("utf-8")]
+    elif url == "gettotalitem":
+        start_response('200 OK',
+                       [('Content-Type','application/json;charset="utf-8"')])
+        body = get_total(environ)
         return [json.dumps(body).encode("utf-8")]
     elif url == "deletemeeting":
         start_response('200 OK',

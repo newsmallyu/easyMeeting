@@ -34,17 +34,109 @@
                     <th class="col-md-2">预订用户</th>                    
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbody">
                
                 </tbody>
             </table>
         
     </div>
+    <div>
+    <ul class="pagination">
+        <li><a id="left" href="#">上一页</a></li>
+        <li class="active"><a id="now" href="#">1</a></li>
+        <li><a id="right" href="#">下一页</a></li>
+    </ul>
+</div>
     <script type="text/javascript">
-        window.onload=function(){
+    var page_size = 2;
+    var page;
+    var now_page = 1;
+    window.onload=function(){
+        var cookie = getCookie();
+        $.ajax({
+            method: "POST",
+            url: "gettotalitem",
+            contentType: "application/json;charset='utf-8'",
+            data: JSON.stringify(cookie)
+        }).done(function(response_body) {
+            if(response_body%page_size == 0){
+                page=response_body/page_size;
+        }
+            else{
+                page=Math.ceil(response_body/page_size);    
+        }
+        });
+        $('pagination').pagination({
+            pageCount:page,
+            current:now_page,
+            showData:page_size
+        });
+        getmeetings(page_size*(now_page-1),page_size);
+        /*此时index和num都为6*/
+        /*dataDisplay(result.data,0,index);
+        /*默认第一页显示第0条到第index条数据*/
+
+        $("#right").click(function(){
+            now_page++; /*每次点击下一页，页数+1*/
+            $("#page").text(now_page);/*改变分页按钮上显示的页数*/
+            if(now_page+1>page){
+                $("#right").removeAttr("disabled");
+                /*如果是最后一页，就禁用a标签*/
+            }
+            else{
+                $("#right").attr('disabled',"true");
+                 /*如果不是最后一页，就重新启用a标签*/
+            }
+
+            if(now_page-1<1){ 
+                $("#left").removeAttr("disabled");
+                /*如果是第一页，就禁用a标签*/
+            }
+            else{
+                $("#left").attr('disabled',"true");
+                /*如果不是第一页，就重新启用a标签*/
+            }
+            $("#tbody").empty();/*清空上一页显示的数据*/
+            /*dataDisplay(result.data,index,index=index+num);*/
+            getmeetings(page_size*(now_page-1),page_size);
+            /*显示新一页的数据，*/
+        });
+
+        $("#left").click(function(){
+            now_page--;/*每次点击上一页，页数-1*/
+            $("#page").text(now_page);  //改变分页按钮上显示的页数
+            if(now_page-1<1){
+                $("#left").removeAttr("disabled");
+                /*如果是第一页，就禁用a标签*/
+            }
+            else{
+                $("#left").attr('disabled',"true");
+                /*如果不是第一页，就重新启用a标签*/
+            }
+
+            if(now_page+1>page){
+                $("#right").removeAttr("disabled");
+                /*如果是最后一页，就禁用a标签*/
+            } 
+            else{
+                $("#right").attr('disabled',"true");
+                /*如果不是最后一页，就重新启用a标签*/
+            }
+            $("#tbody").empty();/*清空上一页显示的数据*/
+            /*dataDisplay(result.data,index=index-2*num,index=index+num);*/
+            
+            getmeetings(page_size*(now_page-1),page_size);
+            /*显示新一页的数据，*/                   
+        });
+        
+
+    }
+        function getmeetings(start,size){
             var cookie = getCookie();
             var html = '';
             var date = '';
+            cookie.pagestart = start;
+            cookie.pagesize = size;
             $.ajax({
             method: "POST",
             url: "managermeeting",
@@ -66,7 +158,7 @@
                 "</button>"+"</td>"+
             "</tr>";
          }
-         $("#meetings").append(html);
+         $("#tbody").append(html);
         }else{
             alert("没有查询到您创建的会议室预订记录");
         }

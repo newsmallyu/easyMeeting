@@ -6,8 +6,9 @@
       <change beforePath="$PROJECT_DIR$/cgi/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/cgi/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cgi/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/cgi/db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cgi/easymeeting.db" beforeDir="false" afterPath="$PROJECT_DIR$/cgi/easymeeting.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.html" beforeDir="false" afterPath="$PROJECT_DIR$/manage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sign.html" beforeDir="false" afterPath="$PROJECT_DIR$/sign.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cgi/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1487">
-              <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+            <state relative-caret-position="252">
+              <caret line="74" column="22" lean-forward="true" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
               <folding>
                 <element signature="e#61#72#0" expanded="true" />
               </folding>
@@ -32,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cgi/db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1280">
-              <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+            <state relative-caret-position="434">
+              <caret line="147" column="19" lean-forward="true" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -41,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/calendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4629">
-              <caret line="875" column="9" lean-forward="true" selection-start-line="875" selection-start-column="9" selection-end-line="875" selection-end-column="9" />
+            <state relative-caret-position="301">
+              <caret line="321" column="7" selection-start-line="321" selection-start-column="7" selection-end-line="321" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -50,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="2495" column="41" selection-start-line="2495" selection-start-column="41" selection-end-line="2495" selection-end-column="41" />
+            <state relative-caret-position="240">
+              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -59,8 +60,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sign.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1940">
-              <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+            <state relative-caret-position="-260">
+              <caret line="59" column="119" selection-start-line="59" selection-start-column="119" selection-end-line="59" selection-end-column="119" />
             </state>
           </provider>
         </entry>
@@ -73,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            <state relative-caret-position="240">
+              <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -92,7 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dumps</find>
       <find>autoLogin</find>
       <find>connectDatabase</find>
       <find>user</find>
@@ -109,7 +109,6 @@
       <find>month_meetings</find>
       <find>meetingCardFormat</find>
       <find>queryMeeting</find>
-      <find>handlemanagerMeeting</find>
       <find>if</find>
       <find>del</find>
       <find>showEnviron</find>
@@ -122,6 +121,8 @@
       <find>handleSiginAd</find>
       <find>deleteMeetingById</find>
       <find>会议室</find>
+      <find>logout</find>
+      <find>handlemanagerMeeting</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -131,22 +132,23 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/js/sign.js" />
-        <option value="$PROJECT_DIR$/manage.html" />
-        <option value="$PROJECT_DIR$/js/calendar.js" />
         <option value="$PROJECT_DIR$/manage2.html" />
         <option value="D:/python/Lib/wsgiref/handlers.py" />
         <option value="$PROJECT_DIR$/cgi/server.py" />
         <option value="$PROJECT_DIR$/nginx-window.conf" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/cgi/app.py" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/manage.html" />
+        <option value="$PROJECT_DIR$/sign.html" />
+        <option value="$PROJECT_DIR$/js/calendar.js" />
+        <option value="$PROJECT_DIR$/cgi/app.py" />
         <option value="$PROJECT_DIR$/cgi/db.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1829" />
-    <option name="y" value="43" />
+    <option name="x" value="1693" />
+    <option name="y" value="8" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -161,6 +163,11 @@
             <path>
               <item name="easyMeeting" type="b2602c69:ProjectViewProjectNode" />
               <item name="easyMeeting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="easyMeeting" type="b2602c69:ProjectViewProjectNode" />
+              <item name="easyMeeting" type="462c0819:PsiDirectoryNode" />
+              <item name="cgi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="easyMeeting" type="b2602c69:ProjectViewProjectNode" />
@@ -280,8 +287,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.server" />
         <item itemvalue="Python.db" />
+        <item itemvalue="Python.server" />
       </list>
     </recent_temporary>
   </component>
@@ -310,7 +317,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555051719495</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1555146252742</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555146252743</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -325,13 +339,13 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1296" height="1000" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27027026" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27027026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920508" visible="true" weight="0.2675894" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49920508" weight="0.35524797" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49920508" weight="0.2675894" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49920508" weight="0.35427952" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32871974" />
@@ -353,138 +367,143 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>103</line>
+          <line>110</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>104</line>
+          <line>111</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>106</line>
+          <line>113</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>100</line>
+          <line>107</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>99</line>
+          <line>106</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>115</line>
+          <line>112</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>111</line>
+          <line>108</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>107</line>
+          <line>104</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>104</line>
+          <line>101</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>102</line>
+          <line>99</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>116</line>
+          <line>113</line>
           <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>169</line>
+          <line>177</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>170</line>
+          <line>178</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>168</line>
+          <line>176</line>
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>124</line>
+          <line>121</line>
           <option name="timeStamp" value="60" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>125</line>
+          <line>122</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>117</line>
+          <line>114</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>118</line>
+          <line>115</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>119</line>
+          <line>116</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>121</line>
+          <line>118</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>120</line>
+          <line>117</line>
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>123</line>
+          <line>120</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/app.py</url>
-          <line>122</line>
+          <line>119</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>93</line>
+          <line>100</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>92</line>
+          <line>99</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>94</line>
+          <line>101</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cgi/db.py</url>
-          <line>95</line>
+          <line>102</line>
           <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cgi/db.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="86" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -528,13 +547,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cgi/easymeeting.db">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="4104" selection-start-line="18" selection-start-column="4104" selection-end-line="18" selection-end-column="4104" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/python/Lib/wsgiref/simple_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1033">
@@ -565,13 +577,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/js/angular.min.js" />
-    <entry file="file://$PROJECT_DIR$/js/sign.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/python/Lib/distutils/command/register.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -649,10 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sign.html">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1940">
-          <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+        <state relative-caret-position="100">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -661,43 +666,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        <state relative-caret-position="240">
+          <caret line="165" column="9" selection-start-line="165" selection-start-column="9" selection-end-line="165" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="2495" column="41" selection-start-line="2495" selection-start-column="41" selection-end-line="2495" selection-end-column="41" />
+        <state relative-caret-position="240">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/sign.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-260">
+          <caret line="59" column="119" selection-start-line="59" selection-start-column="119" selection-end-line="59" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cgi/easymeeting.db">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="43" lean-forward="true" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/calendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4629">
-          <caret line="875" column="9" lean-forward="true" selection-start-line="875" selection-start-column="9" selection-end-line="875" selection-end-column="9" />
+        <state relative-caret-position="301">
+          <caret line="321" column="7" selection-start-line="321" selection-start-column="7" selection-end-line="321" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cgi/db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1280">
-          <caret line="95" column="24" lean-forward="true" selection-start-line="95" selection-start-column="24" selection-end-line="95" selection-end-column="24" />
+        <state relative-caret-position="434">
+          <caret line="147" column="19" lean-forward="true" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cgi/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1487">
-          <caret line="102" column="40" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
+        <state relative-caret-position="252">
+          <caret line="74" column="22" lean-forward="true" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
           <folding>
             <element signature="e#61#72#0" expanded="true" />
           </folding>

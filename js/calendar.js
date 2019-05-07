@@ -317,7 +317,7 @@ $(function() {
         if (JSON.parse(cookie.islogin)) {
           $("a.register").text(cookie.name)
                          .attr("href", "#");
-          $("a.login").text("注销").attr("href", "http://10.16.75.22:9898/api/2vwnh2mdcq1j820zuu1yfm1r3p/logout?callback=http://10.16.236.117/easyMeeting/sign.html");
+          $("a.login").text("注销").attr("href", "http://10.16.75.22:9898/api/3k8fo80wnmwj82cxrwmbs9ovso/logout?callback=http://localhost/easyMeeting/sign.html");
         }
       }
     }

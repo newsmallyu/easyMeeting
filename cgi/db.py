@@ -79,6 +79,13 @@ def dateSplit(dateStr):
     return int(date[0]+date[1])
 
 
+def get_totalcell(user):
+    conn, cursor = createMeetingTable()
+    cursor.execute("""SELECT * FROM meetings
+                WHERE USER_NAME ='{}'""".format(user))
+    meetingcount = len(cursor.fetchall())
+    return meetingcount
+
 def addMeeting(timestamp, title, room, start, end, user_name):
     id = int(time.time() * 10000000)
     # 如果meetings不存在则首先创建表meetings
@@ -124,10 +131,13 @@ def queryMeetings(start_timestamp, end_timestamp):
     meetings = cursor.fetchall()
     return meetings
 
-def queryMeetingByUser(user):
+def queryMeetingByUser(user, startnum, page_size):
     conn, cursor = createMeetingTable()
-    cursor.execute("""SELECT * FROM meetings
-            WHERE USER_NAME ='{}'""".format(user))
+    if(user == "admin"):
+        cursor.execute("SELECT * FROM meetings limit '{}' offset '{}'".format(int(page_size), int(startnum)))
+    else:
+        cursor.execute("""SELECT * FROM meetings
+                WHERE USER_NAME ='{}' limit '{}' offset '{}'""".format(user, int(page_size), int(startnum)))
     meetings = cursor.fetchall()
     return meetings
 
@@ -152,6 +162,8 @@ def deleteMeetingById(id):
 if __name__ == '__main__':
 #    print(queryMeetings("1464451200000", "1478966400000"))
 #    createMeetingTable()
-#    print(queryMeetingByUser("admin"))
-    queryMeetingALL()
+#    print(queryMeetingByUser())
+#    queryMeetingALL()
+#    queryMeetingByUser("admin", 1 , 1)
+    get_totalcell("admin")
 #    deleteMeetingById(15542741082021832)

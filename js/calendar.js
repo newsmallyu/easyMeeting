@@ -6,6 +6,7 @@ $(function() {
   var $calendar_weeks_wrapper = $(".calendar-weeks-wrapper");
   var $one_week = $(".week");
   var $day_col = $(".week .day-col");
+  var GMTms = '0';
 
   /*
    * 根据calendar相关dom元素的name属性解析相应的日期信息：年、月、日
@@ -122,6 +123,62 @@ $(function() {
     var daycell_height = document.querySelector(".mweek").clientHeight;
     $scroll_bar_vertical.scrollTop = row * daycell_height;
   }
+  function getGMT(datevalue){
+    var timezone = 8; //目标时区时间，东八区
+    var offset_GMT = new Date().getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
+    // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+    var targetDate = new Date(datevalue + offset_GMT * 60 * 1000 + timezone * 60 * 60 * 1000);
+    GMTms2 = Date.parse(targetDate.format("yyyy-MM-dd"));
+    GMTms = Number(GMTms2) - 28800000;
+    return GMTms;
+  }
+  function getPDT(datevalue){
+    var PDTms = 0; 
+    var offset_GMT = new Date().getTimezoneOffset();
+               // 本地时间和格林威治的时间差，单位为分钟
+    // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+    if(Number(offset_GMT) == 360){
+      PDTms = (Number(datevalue) + Number(50400000));
+    }
+    if(Number(offset_GMT) == 420){
+      PDTms = (Number(datevalue) + Number(54000000));
+    }
+    if(Number(offset_GMT) == 480){
+      PDTms = (Number(datevalue) + Number(57600000));
+    }
+    if(Number(offset_GMT) == 540){
+      PDTms = (Number(datevalue) + Number(61200000));
+    }
+    if(Number(offset_GMT) == 600){
+      PDTms = (Number(datevalue) + Number(64800000));
+    }
+    if(Number(offset_GMT) == -480){
+      PDTms = (Number(datevalue) + Number(0));
+    }
+    return PDTms;
+  }
+  Date.prototype.format = function(format){
+    var o = {
+        "M+" : this.getMonth()+1, //month
+        "d+" : this.getDate(), //day
+        "H+" : this.getHours(), //hour
+        "m+" : this.getMinutes(), //minute
+        "s+" : this.getSeconds(), //second
+        "q+" : Math.floor((this.getMonth()+3)/3), //quarter
+        "S" : this.getMilliseconds() //millisecond
+    }
+
+    if(/(y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+    }
+
+    for(var k in o) {
+        if(new RegExp("("+ k +")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length==1 ? o[k] : ("00"+ o[k]).substr((""+ o[k]).length));
+        }
+    }
+    return format;
+}
 
   // 刷新当前显示的月份样式和title
   // dir: backward, forward
@@ -410,7 +467,7 @@ $(function() {
       window.last_month_meetings = response_meetings;
 
       response_meetings.forEach(function(meeting) {
-        var $meeting_lists = $("td[name=" + meeting[1] + "] .meeting-lists");
+        var $meeting_lists = $("td[name=" + getPDT(meeting[1]) + "] .meeting-lists");
         var ishide = $meeting_lists.parent().hasClass("active")? "" : true;
         var meeting_card = meetingCardFormat(ishide, meeting[0], meeting[2], meeting[3],
                                          meeting[4], meeting[5]);
@@ -435,7 +492,7 @@ $(function() {
       window.last_week_meetings = response_meetings;
 
       response_meetings.forEach(function(meeting) {
-        var $meeting_lists = $(".day-col[name=" + meeting[1] + "] .meeting-lists");
+        var $meeting_lists = $(".day-col[name=" + getPDT(meeting[1]) + "] .meeting-lists");
         var ishide = $meeting_lists.parent().hasClass("active")? "" : true;
         var meeting_card = meetingCardFormat(ishide, meeting[0], meeting[2], meeting[3],
                                          meeting[4], meeting[5]);
@@ -826,8 +883,9 @@ $(function() {
   // 会议室预定按钮点击处理效果
   $(".btn-book-meeting").on("click", function(e) {
     var cookie = getCookie();
+    date1 = Number($(".active").parent().attr("name"));
     var meeting_info = {};
-    meeting_info.timestamp = $(".active").parent().attr("name");
+    meeting_info.timestamp = getGMT(date1);
     meeting_info.title = $(".input-meeting-title").val();
     meeting_info.room = $(".js-list-value").eq(0).text();
     meeting_info.start = $(".js-list-value").eq(1).text();
@@ -916,7 +974,7 @@ $(function() {
       change_meetings.forEach(function(meeting) {
         // 新增会议室
         if (meeting[6] === "+") {
-          var $meeting_lists = $("td[name=" + meeting[1] + "] .meeting-lists");
+          var $meeting_lists = $("td[name=" + getPDT(meeting[1]) + "] .meeting-lists");
           var ishide = $meeting_lists.parent().hasClass("active")? "" : true;
           var meeting_card = meetingCardFormat(ishide, meeting[0], meeting[2],
                                 meeting[3], meeting[4], meeting[5]);
@@ -946,7 +1004,7 @@ $(function() {
       change_meetings.forEach(function(meeting) {
         // 新增会议室
         if (meeting[6] === "+") {
-          var $meeting_lists = $(".day-col[name=" + meeting[1] + "] .meeting-lists");
+          var $meeting_lists = $(".day-col[name=" + getPDT(meeting[1]) + "] .meeting-lists");
           var ishide = $meeting_lists.parent().hasClass("active")? "" : true;
           var meeting_card = meetingCardFormat(ishide, meeting[0], meeting[2],
                                 meeting[3], meeting[4], meeting[5]);

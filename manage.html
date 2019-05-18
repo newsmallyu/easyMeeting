@@ -42,14 +42,16 @@
     </div>
     <div>
     <ul class="pagination">
+        <li id="startpage"><a href="#">首页</a></li>
         <li id="left"><a href="#">上一页</a></li>
         <li class="active"><a id="page" href="#">1</a></li>
+        <li id="endpage"><a href="#">尾页</a></li>
         <li id="right"><a href="#">下一页</a></li>
         <li class="disabled"><a id="total"></a></li>
     </ul>
 </div>
     <script type="text/javascript">
-        var page_size = 10;
+        var page_size = 3;
         var page;
         var now_page = 1;
     window.onload=function(){
@@ -77,6 +79,18 @@
         $("#left").attr('class',"disabled");
         $("#left").css("pointer-events","none");
     }
+    $("#startpage").click(function(){
+        $("#tbody").empty();
+        now_page = 1;
+        getmeetings(page_size*(now_page-1),page_size);
+        $("#page").text(now_page);
+    });
+    $("#endpage").click(function(){
+        $("#tbody").empty();
+        now_page = page;
+        getmeetings(page_size*(now_page-1),page_size);
+        $("#page").text(now_page);
+    });
     $("#right").click(function(){
             now_page++; /*每次点击下一页，页数+1*/
             $("#page").text(now_page);/*改变分页按钮上显示的页数*/

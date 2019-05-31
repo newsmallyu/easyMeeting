@@ -166,7 +166,7 @@
         }).done(function(response_body) {
             if (response_body !== null) {
             for(var i = 0;i<response_body.length;i++){
-                date=(new Date(Number(response_body[i][1]))).format("yyyy-MM-dd");
+                date=(new Date(Number(getPDT(response_body[i][1])))).format("yyyy-MM-dd");
             html+="<tr>"+
             "<td id='myid'>"+response_body[i][0]+"</td>"+
             "<td>"+date+"</td>"+
@@ -223,6 +223,31 @@
       });
     }
     return dict_cookie;
+  }
+  function getPDT(datevalue){
+    var PDTms = 0; 
+    var offset_GMT = new Date().getTimezoneOffset();
+               // 本地时间和格林威治的时间差，单位为分钟
+    // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+    if(Number(offset_GMT) == 360){
+      PDTms = (Number(datevalue) + Number(50400000));
+    }
+    if(Number(offset_GMT) == 420){
+      PDTms = (Number(datevalue) + Number(54000000));
+    }
+    if(Number(offset_GMT) == 480){
+      PDTms = (Number(datevalue) + Number(57600000));
+    }
+    if(Number(offset_GMT) == 540){
+      PDTms = (Number(datevalue) + Number(61200000));
+    }
+    if(Number(offset_GMT) == 600){
+      PDTms = (Number(datevalue) + Number(64800000));
+    }
+    if(Number(offset_GMT) == -480){
+      PDTms = (Number(datevalue) + Number(0));
+    }
+    return PDTms;
   }
 
   function onButtonClick(id) {

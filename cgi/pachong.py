@@ -70,6 +70,7 @@ class Weibo:
             self.following = int(guid[0])
             print(u"关注数: " + str(self.following))
 
+
             # 粉丝数
             str_fs = selector.xpath("//div[@class='tip2']/a/text()")[1]
             guid = re.findall(pattern, str_fs, re.M)

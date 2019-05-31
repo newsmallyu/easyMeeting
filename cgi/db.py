@@ -134,10 +134,10 @@ def queryMeetings(start_timestamp, end_timestamp):
 def queryMeetingByUser(user, startnum, page_size):
     conn, cursor = createMeetingTable()
     if(user == "admin"):
-        cursor.execute("SELECT * FROM meetings limit '{}' offset '{}'".format(int(page_size), int(startnum)))
+        cursor.execute("SELECT * FROM meetings  ORDER BY TIMESTAMP DESC limit '{}' offset '{}'".format(int(page_size), int(startnum)))
     else:
         cursor.execute("""SELECT * FROM meetings
-                WHERE USER_NAME ='{}' limit '{}' offset '{}'""".format(user, int(page_size), int(startnum)))
+                WHERE USER_NAME ='{}' ORDER BY TIMESTAMP DESC limit '{}' offset '{}'""".format(user, int(page_size), int(startnum)))
     meetings = cursor.fetchall()
     return meetings
 

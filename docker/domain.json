@@ -1,0 +1,24 @@
+{
+      "buckets" : [
+        {
+          "key" : "newegg.org",
+          "doc_count" : 331482154
+        },
+        {
+          "key" : "microsoft.com",
+          "doc_count" : 15839683
+        },
+        {
+          "key" : "redcanary.co",
+          "doc_count" : 4029931
+        },
+        {
+          "key" : "ntp.org",
+          "doc_count" : 3676321
+        },
+        {
+          "key" : "google.com",
+          "doc_count" : 2828351
+        }
+     ]
+}
